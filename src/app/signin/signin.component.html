@@ -1,17 +1,20 @@
-<div style="width: 100%;height: 100%;background-image: url('http://getwallpapers.com/wallpaper/full/a/5/d/544750.jpg');">
-<div style="height: 25%;"></div>
-<div class="col-md-12">
-   <div class="card card-container" style="width: 30%;height:max-content; margin-left: 35%;background-color: #f39c12;"  >
+<div style="width: 100%;height: 100%;background-color: white;">
+  <div style="width: 60px;height: 60px;background-color:#718ab8 ;margin-top: 20px;margin-left: 70px;"></div>
+  <div style="width: 60px;height: 60px;background-color:#1a4ba7 ;margin-left: 10px;"></div>
+  <div style="width: 60px;height: 60px;background-color:#9e2121 ;float: right;"></div>
+  <div style="width: 60px;height: 60px;background-color:#1a4ba7 ;float: right;margin-top: 60px;"></div>
+<div class="col-md-12" >
+   <div class="card card-container" style="width: 30%; margin-left: 35%;background-color: #5eb9dd;">
      <form  *ngIf="!isLoggedIn"  name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate >
        <div class="form-group" >
        <div style="height: 30px;"></div>
-        <h1 style="text-align: center;color: rgb(47, 139, 23);"><b><i>Login</i></b></h1>
-        <h3 style="text-align: center;margin-top: 20px;color: black;">Username</h3>
+        <h1 style="text-align: center;color: #9e2121;"><b><i>Login</i></b></h1>
+        <h3 style="text-align: center;margin-top: 20px;color: black;"><b>Username</b></h3>
          <input type="text" class="form-control" name="username" style="width: 50%;margin-left: 25%;"  [(ngModel)]="form.username"  required #username="ngModel"/>
          <div  class="alert alert-danger" role="alert"  *ngIf="username.errors && f.submitted" > Username is required!</div>
        </div>
        <div class="form-group">
-        <h3 style="text-align: center;color: black;">Password</h3>
+        <h3 style="text-align: center;color: black;"><b>Password</b></h3>
          <input type="password" class="form-control"  name="password" style="width: 50%;margin-left: 25%;"  [(ngModel)]="form.password"   required  minlength="6"  #password="ngModel"  />
          <div  class="alert alert-danger" role="alert" *ngIf="password.errors && f.submitted">
            <div *ngIf="password.errors.required" >Password is required</div>
@@ -27,11 +30,17 @@
              Login failed {{ errorMessage }} </div>
        </div>
      </form>
- 
-     <div class="alert alert-success" *ngIf="isLoggedIn">
-       Logged in 
-     </div>
+      <div class="alert alert-success" *ngIf="isLoggedIn">
+         Logged in 
+      </div>
+      <div style="width: 60px;height: 60px;background-color:#b33939 ;"></div>
+    </div>
    </div>
- </div>
-</div>
+   <div style="width: 40px;height: 40px;background-color:#3d97ad ;margin-top: 160px;margin-left: 140px;"></div>
+   <div style="width: 40px;height: 40px;background-color:#3d97ad ;margin-top: 40px;"></div>
+   <div style="width: 40px;height: 40px;background-color:#3d97ad ;display: inline-block;"></div>
+   <div style="width: 40px;height: 40px;background-color:#3d97ad ;display: inline-block;"></div>
+   <div style="width: 60px;height: 60px;background-color:#718ab8 ;float: right;"></div>
+
+  </div>
  
