@@ -32,7 +32,6 @@ export class SigninComponent implements OnInit {
     const { username, password } = this.form;
     this.authService.login(username, password).subscribe(
       resp => {
-        console.log(resp.access_token);
         this.tokenStorage.saveToken(resp.access_token);
         this.isLoginFailed = false;
         this.isLoggedIn = true;

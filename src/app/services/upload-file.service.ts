@@ -8,7 +8,7 @@ import { HttpClient,  HttpHeaders } from '@angular/common/http';
 })
 export class UploadFilService {
 
-  private baseUrl = 'http://10.1.31.72:8280';
+  private baseUrl = 'http://10.1.40.29:8280/';
 
   constructor(private http: HttpClient) { }
 
@@ -17,7 +17,7 @@ export class UploadFilService {
 
     formData.append('file', file);
 
-    const req = new HttpRequest('POST', `${this.baseUrl}/files/upload`, formData, {
+    const req = new HttpRequest('POST', `${this.baseUrl}files/upload`, formData, {
       reportProgress: true,
       responseType: 'json'
     });
@@ -26,7 +26,8 @@ export class UploadFilService {
   }
 
   getFiles(): Observable<any> {
-    return this.http.get(`${this.baseUrl}/files/files`);
+    return this.http.get(`${this.baseUrl}files`);
   }
+  
 
 }

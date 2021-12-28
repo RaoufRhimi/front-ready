@@ -5,7 +5,7 @@ import { Category } from '../models/category';
 import { Products } from '../models/products';
 
 
-const baseUrl ='http://localhost:8082/api/prod'
+const baseUrl ='http://10.1.40.29:8280/api/prod'
 @Injectable({
   providedIn: 'root'
 })

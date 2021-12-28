@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { DocumentInfo } from './alfresco-work/DocumentInfo';
 
-const baseUrl = 'http://localhost:8082/files/'
+const baseUrl = 'http://10.1.40.29:8280/files/'
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +16,7 @@ export class AlfresoApiServiceService {
   }
 
   getSiteDocuments(): Observable<DocumentInfo[]> {
-    return this.http.get<DocumentInfo[]>(`${baseUrl}/content`);
+    return this.http.get<DocumentInfo[]>(`${baseUrl}content`);
   }
 
 

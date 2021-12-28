@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CategoryComponent } from './category/category.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule,HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ProductsComponent } from './products/products.component';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
@@ -13,6 +13,7 @@ import { EditProductComponent } from './edit-product/edit-product.component';
 import { AlfrescoWorkComponent } from './alfresco-work/alfresco-work.component';
 import { SigninComponent } from './signin/signin.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {Interceptor} from './interceptor';
 
 
 @NgModule({
@@ -38,7 +39,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     
   ],
   providers: [
-   
+   {provide:HTTP_INTERCEPTORS,
+    useClass: Interceptor,
+    multi:true
+  }
   ],
   bootstrap: [AppComponent]
 })
