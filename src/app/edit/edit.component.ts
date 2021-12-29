@@ -37,6 +37,7 @@ edit(){
   console.log(this.name);
   this.categoryService.updateCategory(this.id_cat,this.name).subscribe();
   this.router.navigate(['/category'])
+  
 }
 
 }

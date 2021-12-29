@@ -5,17 +5,17 @@ import { Category } from '../models/category';
 import { Products } from '../models/products';
 
 
-const baseUrl ='http://10.1.40.29:8280/api/prod'
+const baseUrl ='http://10.1.40.78:8280/api/prod'
 @Injectable({
   providedIn: 'root'
 })
 
 export class ProductsService {
-
+  baseUrl ='http://10.1.40.78:8280/api/prod';
   constructor(private http:HttpClient) { }
 
    addProducts(name:any,quantity:any,id:any): Observable<any> {
-    return this.http.post<any>(`${baseUrl}/add/${id}`, {name,quantity});
+    return this.http.post<any>(this.baseUrl+'/add/'+id, {name,quantity});
   } 
 
  
@@ -23,13 +23,13 @@ export class ProductsService {
     return this.http.get(baseUrl);
   }
   getProductById(id: number):Observable<any>{
-    return this.http.get(`${baseUrl}/${id}`)
+    return this.http.get(this.baseUrl+'/'+id)
   }
-  deleteProduct(id: any): Observable<any> {
-    return this.http.delete(`${baseUrl}/${id}`);
+  deleteProduct(id: any){
+    return this.http.delete(this.baseUrl+'/'+id);
   }
   updateProduct(id:number,name:any,quantity:any): Observable<any> {
-    return this.http.put(`${baseUrl}/${id}`, {name});
+    return this.http.put(this.baseUrl+'/'+id, {name});
   }
 
 

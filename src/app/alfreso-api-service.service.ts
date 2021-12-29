@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { DocumentInfo } from './alfresco-work/DocumentInfo';
 
-const baseUrl = 'http://10.1.40.29:8280/files/'
+const baseUrl = 'http://10.1.40.78:8280/files/'
 
 @Injectable({
   providedIn: 'root'

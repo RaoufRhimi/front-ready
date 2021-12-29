@@ -45,11 +45,9 @@ fileName= 'ExcelSheet.xlsx';
   constructor(private categoryService: CategoryService, private router: Router,private router2:ActivatedRoute,private uploadService:UploadFilService) { }
 
   ngOnInit(): void {
-
+    
     this.fileInfos = this.uploadService.getFiles();
-
     this.id_cat = this.router2.snapshot.params.id_cat ; 
-   
     this.categoryService.getCategoryList().subscribe((data : Category[])=>
     {
       this.category=data;
@@ -104,20 +102,17 @@ fileName= 'ExcelSheet.xlsx';
 
 
   goToProduct(id:any){
-    this.router.navigate(['/products/'+id])
-
+    this.router.navigate(['/products/'+id]);
   }
+
 addCategory(){
-  this.categoryService.addCategory(this.catName).subscribe()
-  console.log(this.catName)
- window.location.reload()
-
-
+  this.categoryService.addCategory(this.catName).subscribe();
+ window.location.reload();
 }
-deleteCategory(id : any){
-  this.categoryService.deleteCategory(id).subscribe()
-  window.location.reload()
 
+deleteCategory(id : any){
+  this.categoryService.deleteCategory(id).subscribe();
+  window.location.reload();
 }
 makePdf(){
 

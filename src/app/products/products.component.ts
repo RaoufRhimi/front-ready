@@ -34,7 +34,6 @@ console.log(this.id_cat)
   }
 
    addProduct(){
-     console.log(this.id_cat)
      
     this.productService.addProducts(this.name,this.quantity,this.id_cat).subscribe()
     window.location.reload()
