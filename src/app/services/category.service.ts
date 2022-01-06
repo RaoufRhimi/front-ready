@@ -7,13 +7,12 @@ import { Category } from '../models/category';
   providedIn: 'root'
 })
 export class CategoryService {
-  baseUrl ='http://10.1.40.78:8280/api/categ'
+  baseUrl ='http://10.1.40.65:8280/api/categ'
   constructor(private http: HttpClient) { }
   
   getCategoryList(): Observable<any> {
     return this.http.get(this.baseUrl);
   }
-
   addCategory(name:string): Observable<any> {
     return this.http.post(this.baseUrl+'/add',{name});
   }

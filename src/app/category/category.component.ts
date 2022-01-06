@@ -18,6 +18,9 @@ import autoTable from 'jspdf-autotable';
 import * as XLSX from 'xlsx'; 
 import { Observable } from 'rxjs';
 import { HttpEventType, HttpResponse } from '@angular/common/http';
+import { TokenStorageService } from '../services/token-storage.service';
+import { Token } from '@angular/compiler';
+import { tokenize } from '@angular/compiler/src/ml_parser/lexer';
 
 @Component({
   selector: 'app-category',
@@ -42,11 +45,11 @@ fileName= 'ExcelSheet.xlsx';
  @ViewChild('content',{static: false}) el!: ElementRef;
   data: any;
   
-  constructor(private categoryService: CategoryService, private router: Router,private router2:ActivatedRoute,private uploadService:UploadFilService) { }
+  constructor(tokenService:TokenStorageService,private categoryService: CategoryService, private router: Router,private router2:ActivatedRoute,private uploadService:UploadFilService) { }
 
   ngOnInit(): void {
-    
-    this.fileInfos = this.uploadService.getFiles();
+  
+    //this.fileInfos = this.uploadService.getFiles();
     this.id_cat = this.router2.snapshot.params.id_cat ; 
     this.categoryService.getCategoryList().subscribe((data : Category[])=>
     {
@@ -104,6 +107,11 @@ fileName= 'ExcelSheet.xlsx';
   goToProduct(id:any){
     this.router.navigate(['/products/'+id]);
   }
+  logout(){
+  window.sessionStorage.clear();
+  window.localStorage.clear();
+  this.router.navigate(['/']);
+  }
 
 addCategory(){
   this.categoryService.addCategory(this.catName).subscribe();
@@ -141,16 +149,4 @@ exportexcel(): void
        XLSX.writeFile(wb, this.fileName);
 			
     }
-
-
-
-
-
 }
-
-
-
-
-
-
-

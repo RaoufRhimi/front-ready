@@ -8,7 +8,7 @@ import { HttpClient,  HttpHeaders } from '@angular/common/http';
 })
 export class UploadFilService {
 
-  private baseUrl = 'http://10.1.40.78:8280/';
+  private baseUrl = 'http://10.1.40.65:8280/';
 
   constructor(private http: HttpClient) { }
 

@@ -5,13 +5,13 @@ import { Category } from '../models/category';
 import { Products } from '../models/products';
 
 
-const baseUrl ='http://10.1.40.78:8280/api/prod'
+const baseUrl ='http://10.1.40.65:8280/api/prod'
 @Injectable({
   providedIn: 'root'
 })
 
 export class ProductsService {
-  baseUrl ='http://10.1.40.78:8280/api/prod';
+  baseUrl ='http://10.1.40.59:8280/api/prod';
   constructor(private http:HttpClient) { }
 
    addProducts(name:any,quantity:any,id:any): Observable<any> {
