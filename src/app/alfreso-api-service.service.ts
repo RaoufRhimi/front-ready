@@ -19,7 +19,7 @@ export class AlfresoApiServiceService {
     return this.http.get<DocumentInfo[]>(`${baseUrl}content`);
   }
 
-
+/*
   sendDownloadRequest(document: DocumentInfo):Observable<any>{
 
     const headers = { 'content-type': 'application/json'}  
@@ -28,6 +28,21 @@ export class AlfresoApiServiceService {
     return this.http.post<any>(baseUrl + 'download', body ,{'headers':headers , observe: 'response'});
     
   }
+  */
+
+  downloadFile(documentName:string){
+
+    const REQUEST_PARAMS = new HttpParams().set('fileName',documentName);
+    const REQUEST_URI = baseUrl + 'download_file';
+   return  this.http.get(REQUEST_URI, {
+      params: REQUEST_PARAMS,
+      responseType: 'arraybuffer'
+      
+    })
+    
+
+  }
+  
 
   createDocument(documentName:string):Observable<boolean>{
 

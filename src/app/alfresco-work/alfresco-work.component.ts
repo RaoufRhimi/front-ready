@@ -3,6 +3,12 @@ import fileSaver from 'file-saver';
 import { AlfresoApiServiceService } from '../alfreso-api-service.service';
 import { DocumentInfo } from './DocumentInfo';
 
+const MIME_TYPES = {
+  pdf: 'application/pdf',
+  xls: 'application/vnd.ms-excel',
+  xlsx: 'application/vnd.openxmlformats-officedocument.spreadsheetxml.sheet'
+}
+
 @Component({
   selector: 'app-alfresco-work',
   templateUrl: './alfresco-work.component.html',
@@ -15,6 +21,8 @@ export class AlfrescoWorkComponent implements OnInit {
   docName:string = "";
 
   documentCreated: boolean = false;
+
+  exist: string = "";
 
   constructor(private alfrescoService:AlfresoApiServiceService) { }
 
@@ -30,7 +38,7 @@ export class AlfrescoWorkComponent implements OnInit {
       
     });
   }
-
+/*
   downloadDocument(document:DocumentInfo){
 
    console.log(document);
@@ -40,6 +48,21 @@ export class AlfrescoWorkComponent implements OnInit {
    });
 
   }
+  */
+
+  
+  downloadFile(document:DocumentInfo){
+    if(document != null) {
+      this.exist = document.name != null ? document.name.substring(document.name.lastIndexOf('.') + 1) : "";
+
+      this.alfrescoService.downloadFile(document.name!)
+      .subscribe(data => {
+        //save it on the client machine.
+        saveAs(new Blob([data], {type: 'application/pdf'}), document.name);
+      })
+    }
+  }
+
 
   createDoc(){
 

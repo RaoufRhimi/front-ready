@@ -27,7 +27,7 @@
    Document created succesfully !
 </div>
 <ul class="list-group" style="margin-top: 10px;"> 
-  <li class="list-group-item" *ngFor="let doc of documents"(click)="downloadDocument(doc)">{{doc.name}}<button type="button" class="btn btn-primary btn-sm" style="float: right;">Download</button></li>
+  <li class="list-group-item" *ngFor="let doc of documents"(click)="downloadFile(doc)">{{doc.name}}<button type="button" class="btn btn-primary btn-sm" style="float: right;">Download</button></li>
 </ul>
 </div>
 
